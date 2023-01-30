@@ -1,0 +1,24 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+
+<!-- Begin Block Content --!>
+<br />
+<h2 class="text-center">Profile</h2>
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <ul>
+            <li>First Name:{{ user.first_name }}</li>
+            <li>Last Name: {{ user.last_name }}</li>
+            <li>Email: {{ user.email }}</li>
+            <li>Street: {{ user.street }}</li>
+            <li>City: {{ user.city }}</li>
+            <li>State: {{ user.state }}</li>
+            <li>Zipcode: {{ user.zipcode }}</li>
+            <li>Country: {{ user.country }}</li>
+        </ul>
+    </div>
+</div>
+<!-- End Block --!>
+
+{% endblock %}

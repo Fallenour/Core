@@ -1,0 +1,14 @@
+{% if user.is_staff or user.is_superuser %}
+
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+    {% include 'ui/index1.html' %}
+</html>
+
+{% else %}
+
+    {% load static %}
+    {% include 'ui/webindex.html' %}
+
+{% endif %}
