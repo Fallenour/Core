@@ -14,7 +14,7 @@ FROM ubuntu:22.04
 ## Use for Ubuntu
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install gcc wget git curl python3-pip python3-pytest -y
+RUN apt-get install gcc wget git curl python3-pip python3-pytest gunicorn nginx -y
 
 # set work directory
 WORKDIR /usr/src/app
@@ -36,7 +36,7 @@ COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip3 install -r requirements.txt
 
 # install atomic-red-team
-RUN mkdir /home/atomic-red-team && cd /home/atomic-red-team && git clone https://github.com/redcanaryco/atomic-red-team
+# RUN mkdir /home/atomic-red-team && cd /home/atomic-red-team && git clone https://github.com/redcanaryco/atomic-red-team
 
 ## Use with Alpine
 # install Metasploit

@@ -254,19 +254,20 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_EXTENDED = True # https://docs.celeryq.dev/en/stable/userguide/configuration.html#result-extended
 
 
 CELERY_BEAT_SCHEDULE = {
     "sample_task": {
-        "task": "core.tasks.sample_task",
+        "task": "Tasks.tasks.sample_task",
         "schedule": crontab(minute="*/1"),
     },
     "send_email_report": {
-        "task": "core.tasks.send_email_report",
+        "task": "Tasks.tasks.send_email_report",
         "schedule": crontab(hour="*/1"),
     },
-    "apicalls": {
-        "task": "core.tasks.apicalls",
+    "testapicalls": {
+        "task": "Tasks.tasks.testapicalls",
         "schedule": crontab(minute="*/1"),
     },
 }

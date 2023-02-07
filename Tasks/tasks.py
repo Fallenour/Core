@@ -7,6 +7,8 @@ import requests
 @shared_task
 def sample_task():
     print("The sample task just ran.")
+    A = "testing return value"
+    return A
 
 # NEW
 @shared_task
@@ -16,6 +18,19 @@ def send_email_report():
 @shared_task
 def send_email_report():
     call_command("email_report", )
+
+
+@shared_task
+def testapicalls():
+    api_url = 'http://0.0.0.0:3790/programming_languages'
+    print(api_url)
+    response = requests.get(api_url)
+    print(response)
+    return response.json()
+
+
+
+
 
 @shared_task
 def apicalls():
@@ -27,6 +42,7 @@ def apicalls():
     # Google API Test URL
 #    api_url = 'https://searchconsole.googleapis.com/$discovery/rest?version=v1'.format(api_url_base)
     api_url = 'https://localhost:3790/rest_api/v2/workspaces/1/hosts'.format(api_url_base)
+
     response = requests.get(api_url, headers=headers)
 
     if response.status_code >= 500:
@@ -46,7 +62,7 @@ def apicalls():
         return None
     elif response.status_code == 200:
         api_call = json.loads(response.content.decode('utf-8'))
-        return api_call
+        return response
     else:
         print('[?] Unexpected Error: [HTTP {0}]: Content: {1}'.format(response.status_code, response.content))
     return None

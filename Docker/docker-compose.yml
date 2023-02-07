@@ -2,10 +2,10 @@ version: '2.2'
 
 services:
   web:
-    build: ./project
+    build: ../../core/Docker
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
-      - ./project/:/usr/src/app/
+      - ../../core/:/usr/src/app/
     ports:
       - 1337:8000
     environment:
@@ -17,10 +17,10 @@ services:
   redis:
     image: redis:alpine
   celery:
-    build: ./project
-    command: celery -A core worker -l info
+    build: ../../core/Docker
+    command: celery -A Core worker -l info
     volumes:
-      - ./project/:/usr/src/app/
+      - ../../core:/usr/src/app/
     environment:
       - DEBUG=1
       - SECRET_KEY=dbaa1_i7%*3r9-=z-+_mz4r-!qeed@(-a_r(g@k8jo8y3r27%m
@@ -28,13 +28,24 @@ services:
     depends_on:
       - redis
   celery-beat:
-    build: ./project
-    command: celery -A core beat -l info
+    build: ../../core/Docker
+    command: celery -A Core beat -l info
     volumes:
-      - ./project/:/usr/src/app/
+      - ../../core/:/usr/src/app/
     environment:
       - DEBUG=1
       - SECRET_KEY=dbaa1_i7%*3r9-=z-+_mz4r-!qeed@(-a_r(g@k8jo8y3r27%m
       - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
     depends_on:
       - redis
+  micro:
+    build: ../../core/Docker
+    image: ubuntu:22.04
+    command: pip3 install -r requirements.txt
+    command: gunicorn -w 4 --threads 2 --bind 0.0.0.0:3790 --chdir Microservices wsgi
+    volumes:
+      - ../../core/:/usr/src/app/
+    ports:
+      - 3790:3790
+    depends_on:
+      - web
