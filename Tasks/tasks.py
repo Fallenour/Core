@@ -22,14 +22,43 @@ def send_email_report():
 
 @shared_task
 def testapicalls():
-    api_url = 'http://0.0.0.0:3790/programming_languages'
+    api_url = 'http://192.168.240.3:3790/programming_languages'
     print(api_url)
     response = requests.get(api_url)
     print(response)
     return response.json()
 
+@shared_task
+def testapicalls2():
+    api_url_base = 'http://192.168.240.3:3790/'
+    api_url = 'programming_languages'.format(api_url_base)
+    api_token = 'token:6bde125560088033c618c2app234'
+    headers = {'Content-Type': 'application/json',
+               'Authorization': 'Bearer {0}'.format(api_token)}
 
+    response = requests.get(api_url, headers=headers)
 
+    if response.status_code >= 500:
+        print('[!] [{0}] Server Error'.format(response.status_code))
+        return None
+    elif response.status_code == 404:
+        print('[!] [{0}] URL not found: [{1}]'.format(response.status_code, api_url))
+        return None
+    elif response.status_code == 401:
+        print('[!] [{0}] Authentication Failed'.format(response.status_code))
+        return None
+    elif response.status_code == 400:
+        print('[!] [{0}] Bad Request'.format(response.status_code))
+        return None
+    elif response.status_code >= 300:
+        print('[!] [{0}] Unexpected Redirect'.format(response.status_code))
+        return None
+    elif response.status_code == 200:
+        api_call = json.loads(response.content.decode('utf-8'))
+        return response
+    else:
+        print('[?] Unexpected Error: [HTTP {0}]: Content: {1}'.format(response.status_code, response.content))
+    return None
 
 
 @shared_task

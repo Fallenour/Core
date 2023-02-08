@@ -270,6 +270,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "Tasks.tasks.testapicalls",
         "schedule": crontab(minute="*/1"),
     },
+    "testapicalls2": {
+        "task": "Tasks.tasks.testapicalls2",
+        "schedule": crontab(minute="*/1"),
+    },
 }
 
 
