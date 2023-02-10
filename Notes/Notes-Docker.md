@@ -263,3 +263,19 @@ docker run -d --expose 4001 --expose 2380 --expose 2379 \
  -initial-cluster-token etcd-cluster-1 \
  -initial-cluster etcd0=http://172.20.0.10:2380,etcd1=http://172.20.0.11:2380,etcd2=http://172.20.0.12:2380 \
  -initial-cluster-state new
+ 
+### Known working Solution ###
+
+
+ nc -v 172.20.0.11 2380 	# Sending Node
+ 
+ nc -v -l 0.0.0.0 2380 		# Listening Node
+ 
+ 
+ ###########################################################
+ 
+etcd --name postgres1 --initial-advertise-peer-urls http://172.20.0.10:2380 --listen-peer-urls http://172.20.0.10:2380 --listen-client-urls http://172.20.0.10:2379,http://127.0.0.1:2379 --advertise-client-urls http://172.20.0.10:2379 --initial-cluster-token etcd-cluster-1 --initial-cluster postgres1=http://172.20.0.10:2380,postgres2=http://172.20.0.11:2380,postgres3=http://172.20.0.12:2380 --initial-cluster-state new
+
+etcd --name postgres2 --initial-advertise-peer-urls http://172.20.0.11:2380 --listen-peer-urls http://172.20.0.11:2380 --listen-client-urls http://172.20.0.11:2379,http://127.0.0.1:2379 --advertise-client-urls http://172.20.0.11:2379 --initial-cluster-token etcd-cluster-1 --initial-cluster postgres1=http://172.20.0.10:2380,postgres2=http://172.20.0.11:2380,postgres3=http://172.20.0.12:2380 --initial-cluster-state new
+
+etcd --name postgres3 --initial-advertise-peer-urls http://172.20.0.12:2380 --listen-peer-urls http://172.20.0.12:2380 --listen-client-urls http://172.20.0.12:2379,http://127.0.0.1:2379 --advertise-client-urls http://172.20.0.12:2379 --initial-cluster-token etcd-cluster-1 --initial-cluster postgres1=http://172.20.0.10:2380,postgres2=http://172.20.0.11:2380,postgres3=http://172.20.0.12:2380 --initial-cluster-state new
