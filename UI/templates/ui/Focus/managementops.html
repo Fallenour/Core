@@ -22,13 +22,13 @@
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
     <!-- Styles -->
-    <link href="{% static 'Focus/css/lib/font-awesome.min.css" %}" rel="stylesheet">
-    <link href="{% static 'Focus/css/lib/themify-icons.css" %}" rel="stylesheet">
-    <link href="{% static 'Focus/css/lib/data-table/buttons.bootstrap.min.css" %}" rel="stylesheet" />
-    <link href="{% static 'Focus/css/lib/menubar/sidebar.css" %}" rel="stylesheet">
-    <link href="{% static 'Focus/css/lib/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static 'Focus/css/lib/helper.css" %}" rel="stylesheet">
-    <link href="{% static 'Focus/css/style.css" %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/data-table/buttons.bootstrap.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'Focus/css/lib/menubar/sidebar.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/helper.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/style.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
                                         <ul>
                                             <li>
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/3.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Mr. John</div>
@@ -66,7 +66,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/3.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Mariam</div>
@@ -76,7 +76,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/3.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Tasnim</div>
@@ -86,7 +86,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/3.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Mr. John</div>
@@ -116,7 +116,7 @@
                                         <ul>
                                             <li class="notification-unread">
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/1.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/1.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Michael Qin</div>
@@ -126,7 +126,7 @@
                                             </li>
                                             <li class="notification-unread">
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/2.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Mr. John</div>
@@ -136,7 +136,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/3.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/3.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Michael Qin</div>
@@ -146,7 +146,7 @@
                                             </li>
                                             <li>
                                                 <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img" src="assets/images/avatar/2.jpg" alt="" />
+                                                    <img class="pull-left m-r-10 avatar-img" src="{% static 'Focus/images/avatar/2.jpg' %}" alt="" />
                                                     <div class="notification-content">
                                                         <small class="notification-timestamp pull-right">02:34 PM</small>
                                                         <div class="notification-heading">Mr. John</div>
@@ -650,27 +650,28 @@
 
 
     <!-- jquery vendor -->
-    <script src="{% static 'Focus/js/lib/jquery.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/jquery.nanoscroller.min.js" %}"></script>
+    <script src="{% static 'Focus/js/lib/jquery.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/jquery.nanoscroller.min.js' %}"></script>
     <!-- nano scroller -->
-    <script src="{% static 'Focus/js/lib/menubar/sidebar.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/preloader/pace.min.js" %}"></script>
+    <script src="{% static 'Focus/js/lib/menubar/sidebar.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/preloader/pace.min.js' %}"></script>
     <!-- sidebar -->
 
     <!-- bootstrap -->
 
-    <script src="{% static 'Focus/js/lib/bootstrap.min.js" %}"></script><script src="{% static 'Focus/js/scripts.js" %}"></script>
+    <script src="{% static 'Focus/js/lib/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Focus/js/scripts.js' %}"></script>
     <!-- scripit init-->
-    <script src="{% static 'Focus/js/lib/data-table/datatables.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/buttons.dataTables.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/dataTables.buttons.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/buttons.flash.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/jszip.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/pdfmake.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/vfs_fonts.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/buttons.html5.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/buttons.print.min.js" %}"></script>
-    <script src="{% static 'Focus/js/lib/data-table/datatables-init.js" %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/datatables.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/buttons.dataTables.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/jszip.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/pdfmake.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/vfs_fonts.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/buttons.print.min.js' %}"></script>
+    <script src="{% static 'Focus/js/lib/data-table/datatables-init.js' %}"></script>
 
 
 

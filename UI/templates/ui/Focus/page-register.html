@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
+{% include 'ui/Focus/sidebar.html' %}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,11 +22,11 @@
     <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
     <!-- Styles -->
-    <link href="assets/css/lib/font-awesome.min.css" rel="stylesheet">
-    <link href="assets/css/lib/themify-icons.css" rel="stylesheet">
-    <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/lib/helper.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/themify-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/lib/helper.css' %}" rel="stylesheet">
+    <link href="{% static 'Focus/css/style.css' %}" rel="stylesheet">
 </head>
 
 <body class="bg-primary">
